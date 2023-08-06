@@ -30,7 +30,7 @@ function ProjectsGrid() {
 		<section className="py-5 sm:py-10 mt-5 sm:mt-10">
 			<div className="text-center">
 				<p className="font-general-medium text-2xl sm:text-4xl mb-1 text-ternary-dark dark:text-ternary-light">
-					Projects portfolio
+					Projects Portfolio
 				</p>
 			</div>
 
@@ -38,14 +38,14 @@ function ProjectsGrid() {
 				<h3
 					className="
                         font-general-regular 
-                        text-center text-secondary-dark
+                        text-secondary-dark
                         dark:text-ternary-light
                         text-md
                         sm:text-xl
                         mb-3
                         "
 				>
-					Search projects by title or filter by category
+					Filter projects by category: 
 				</h3>
 				<div
 					className="
@@ -57,7 +57,7 @@ function ProjectsGrid() {
                         gap-3
                         "
 				>
-					<div className="flex justify-between gap-2">
+					{/* <div className="flex justify-between gap-2">
 						<span
 							className="
                                 hidden
@@ -100,7 +100,7 @@ function ProjectsGrid() {
 							placeholder="Search Projects"
 							aria-label="Name"
 						/>
-					</div>
+					</div> */}
 
 					<ProjectsFilter setSelectProject={setSelectProject} />
 				</div>
