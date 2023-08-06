@@ -17,7 +17,7 @@ function PagesMetaHead({ title, keywords, description }) {
 }
 
 PagesMetaHead.defaultProps = {
-	title: 'Next.js & TailwindCSS Portfolio Project',
+	title: "Daiwik's Personal Website",
 	keywords: 'next.js, react, web, ui',
 	keywords: 'Simple and multi-page next.js and react application',
 };
