@@ -10,14 +10,14 @@ import {
 export const projectsData = [
 	{
 		id: 1,
-		title: 'Google Health Platform',
+		title: 'MiceUp',
 		url: 'google-health-platform',
-		category: 'Web Application',
+		category: 'Assistive Technology',
 		img: '/images/web-project-2.jpg',
 		ProjectHeader: {
-			title: 'Google Health Platform',
+			title: 'MiceUp',
 			publishDate: 'Jul 26, 2021',
-			tags: 'UI / Frontend',
+			tags: 'Assistive Technology',
 		},
 		ProjectImages: [
 			{

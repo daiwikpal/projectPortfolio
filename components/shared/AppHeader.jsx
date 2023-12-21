@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FiSun, FiMoon, FiX, FiMenu } from 'react-icons/fi';
 // import HireMeModal from '../HireMeModal';
+import logoPersonal from '../../public/images/logo.png'
 import logoLight from '../../public/images/logo-light.svg';
 import logoDark from '../../public/images/logo-dark.svg';
 import useThemeSwitcher from '../../hooks/useThemeSwitcher';
@@ -50,16 +51,16 @@ function AppHeader() {
 						<Link href="/">
 							{activeTheme === 'dark' ? (
 								<Image
-									src={logoDark}
-									className="w-36 cursor-pointer"
+									src={logoPersonal}
+									className="w-36 cursor-pointer rounded-lg"
 									alt="Dark Logo"
 									width={150}
 									height={120}
 								/>
 							) : (
 								<Image
-									src={logoLight}
-									className="w-36 cursor-pointer"
+									src={logoPersonal}
+									className="w-36 cursor-pointer rounded-lg"
 									alt="Dark Logo"
 									width={150}
 									height={120}

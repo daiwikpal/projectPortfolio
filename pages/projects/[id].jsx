@@ -53,7 +53,7 @@ function ProjectSingle(props) {
 			<div className="block sm:flex gap-0 sm:gap-10 mt-14">
 				<div className="w-full sm:w-1/3 text-left">
 					{/* Single project client details */}
-					<div className="mb-7">
+					{/* <div className="mb-7">
 						<p className="font-general-regular text-2xl font-semibold text-secondary-dark dark:text-secondary-light mb-2">
 							{props.project.ProjectInfo.ClientHeading}
 						</p>
@@ -83,7 +83,7 @@ function ProjectSingle(props) {
 								}
 							)}
 						</ul>
-					</div>
+					</div> */}
 
 					{/* Single project objectives */}
 					<div className="mb-7">
@@ -109,9 +109,9 @@ function ProjectSingle(props) {
 
 					{/* Single project social sharing */}
 					<div>
-						<p className="font-general-regular text-2xl font-semibold text-ternary-dark dark:text-ternary-light mb-2">
+						{/* <p className="font-general-regular text-2xl font-semibold text-ternary-dark dark:text-ternary-light mb-2">
 							{props.project.ProjectInfo.SocialSharingHeading}
-						</p>
+						</p> */}
 						{/* <div className="flex items-center gap-3 mt-5">
 							{props.project.ProjectInfo.SocialSharing.map(
 								(social, index) => {
