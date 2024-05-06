@@ -18,6 +18,31 @@ a {
 	box-sizing: border-box;
 }
 
+.link-list {
+	list-style: none;
+	padding: 0;
+  }
+  
+  .link-list li {
+	margin-bottom: 10px;
+  }
+  
+  .link-list.light-mode a {
+	text-decoration: none;
+	color: white; /* Default link color */
+	transition: color 0.3s ease; /* Smooth transition effect on color change */
+  }
+
+  .link-list.dark-mode a {
+	text-decoration: none;
+	color: black; /* Default link color */
+	transition: color 0.3s ease; /* Smooth transition effect on color change */
+  }
+  
+  .link-list a:hover {
+	color: green; /* Color change on hover */
+  }
+
 /* Fonts */
 @font-face {
 	font-family: 'GeneralSans-Variable';

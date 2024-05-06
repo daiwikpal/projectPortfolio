@@ -31,13 +31,13 @@ const useThemeSwitcher = () => {
 
 	useEffect(() => {
 		if (typeof window !== 'undefined') {
-
-			console.log(window.document.documentElement); 
+			// console.log(window.document.documentElement); 
 			const root = window.document.documentElement;
 
 			root.classList.remove(activeTheme);
 			console.log("class list" + root.classList);
 			root.classList.add(theme);
+			console.log("class list" + root.classList);
 			window.localStorage.setItem('theme', theme);
 		}
 	}, [theme, activeTheme]);
@@ -45,6 +45,4 @@ const useThemeSwitcher = () => {
 	return [activeTheme, setTheme];
 };
 
-
 export default useThemeSwitcher;
-
