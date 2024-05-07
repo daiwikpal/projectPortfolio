@@ -9,15 +9,24 @@ import AppFooterCopyright from './AppFooterCopyright';
 
 const socialLinks = [
 	{
-		id: 2,
+		id: 1,
 		icon: <FiGithub />,
 		url: 'https://github.com/daiwikpal',
 	},
 	{
-		id: 4,
+		id: 2,
 		icon: <FiLinkedin />,
 		url: 'https://www.linkedin.com/in/daiwik-pal/',
 	},
+	{
+		id: 3,
+		icon: <FiTwitter />,
+		url: 'https://twitter.com/DaiwikPal',
+	},{
+		id: 4,
+		icon: <FiYoutube />, 
+		url: 'https://www.youtube.com/@daiwikp.5388'
+	}
 ];
 
 function AppFooter() {

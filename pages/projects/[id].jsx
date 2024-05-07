@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { FiClock, FiTag } from "react-icons/fi";
+import * as FeatherIcons from "react-icons/fi";
 import PagesMetaHead from "../../components/PagesMetaHead";
 import { projectsData } from "../../data/projectsData";
 import RelatedProjects from "../../components/projects/RelatedProjects";
@@ -9,10 +10,30 @@ import useThemeSwitcher from "../../hooks/useThemeSwitcher";
 function ProjectSingle(props) {
   const [activeTheme] = useThemeSwitcher();
 
-  console.log(activeTheme); 
+  console.log(activeTheme);
 
   //   const theme = localStorage.getItem("theme");
   //   console.log(theme);
+
+  const ExternalLinkButton = ({ linkInfo }) => {
+    const Icon = FeatherIcons[linkInfo.icon];
+
+    const handleClick = () => {
+      window.open(linkInfo.url, "_blank");
+    };
+
+    return (
+      <div className="flex items-center">
+        <button
+          className=" flex items-center hover:bg-gray-500 dark:hover:bg-gray-500  duration-300 bg-primary-dark dark:bg-primary-light dark:text-primary-dark text-white py-0.5 px-4 rounded-full cursor-pointer m-1  "
+          onClick={handleClick}
+        >
+          <Icon className="w-5 h-5 mr-2  text-ternary-light dark:text-ternary-dark" />
+          <span>{linkInfo.linkName}</span>
+        </button>
+      </div>
+    );
+  };
 
   return (
     <div className="container mx-auto">
@@ -118,25 +139,14 @@ function ProjectSingle(props) {
             <p className="font-general-regular text-2xl font-semibold text-ternary-dark dark:text-ternary-light mb-2">
               {props.project.ProjectInfo.LinksHeading}
             </p>
-			<ul>
-                {props.project.ProjectInfo.LinksInfo.map((link) => (
-                  <li key={link.id}>
-                    <p className="font-general-regular text-primary-dark dark:text-ternary-light">
-                      {link.title}:
-                      <a
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-							<p className="font-general-regular hover:text-green-500 light:text-primary-dark dark:text-ternary-light"> {link.linkName} </p>
-                      </a>
-                    </p>
-                  </li>
-                ))}
-			  </ul>
+            
+            <div className="flex">
+            {props.project.ProjectInfo.LinksInfo.map((link) => (
+              <ExternalLinkButton key={link.id} linkInfo={link} />
+            ))}
+            </div>
           </div>
 
-		 
           {/* Single project social sharing */}
           <div>
             {/* <p className="font-general-regular text-2xl font-semibold text-ternary-dark dark:text-ternary-light mb-2">
@@ -164,6 +174,7 @@ function ProjectSingle(props) {
         </div>
 
         {/*  Single project right section details */}
+        {/* TODO: convert this part to render an .md file with images, headers, bullet points, etc */}
         <div className="w-full sm:w-2/3 text-left mt-10 sm:mt-0">
           <p className="text-primary-dark dark:text-primary-light text-2xl font-bold mb-7">
             {props.project.ProjectInfo.ProjectDetailsHeading}

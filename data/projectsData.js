@@ -5,6 +5,8 @@ import {
   FiLinkedin,
   FiTwitter,
   FiYoutube,
+  FiFile,
+  FiGithub
 } from "react-icons/fi";
 
 export const projectsData = [
@@ -65,8 +67,9 @@ export const projectsData = [
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, natus! Quibusdam enim quod in esse, mollitia molestias incidunt quas ipsa accusamus veniam.",
 	  LinksHeading: "Links",
       LinksInfo: [
-        { id: uuidv4(), title: "Title", linkName: "Visit Website", url: "https://google.com" },
-		{ id: uuidv4(), title: "Social Media", linkName: "Instagram", url: "https://google.com" }
+        { id: uuidv4(), icon: "FiGithub", linkName: "Github", url: "https://google.com" },
+		    { id: uuidv4(), icon: "FiYoutube" , linkName: "Youtube", url: "https://google.com" }, 
+        { id: uuidv4(), icon: "FiFile", linkName: "Youtube", url: "https://google.com" }
       ],
       Technologies: [
         {

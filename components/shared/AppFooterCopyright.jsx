@@ -1,3 +1,5 @@
+import {FaHeart} from 'react-icons/fa';
+
 function AppFooterCopyright() {
 	return (
 		<div className="font-general-regular flex justify-center items-center text-center">
@@ -8,10 +10,9 @@ function AppFooterCopyright() {
 					target="__blank"
 					className="hover:underline hover:text-indigo-600 dark:hover:text-indigo-300 ml-1 duration-500"
 				>
-					Modified from Next.js & Tailwind CSS Portfolio
+					Built with <FaHeart className="inline" /> using Next.js
 				</a>
 				.{' '}
-				
 			</div>
 		</div>
 	);
