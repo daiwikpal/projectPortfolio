@@ -48,8 +48,8 @@ function ProjectSingle(props) {
   
   A paragraph with a [link](https://reactjs.org).
   
-  An image:
-  ![Image](https://via.placeholder.com/150)
+  An image of a cutie patootie:
+  ![Image](https://bloximages.newyork1.vip.townnews.com/mdjonline.com/content/tncms/assets/v3/editorial/d/ed/ded1de6a-9343-11ec-96aa-8f8469c89fc5/6213d9793233f.image.jpg?resize=200%2C366)
   
   An inline equation: 
   
