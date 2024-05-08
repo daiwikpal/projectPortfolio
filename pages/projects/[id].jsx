@@ -10,6 +10,8 @@ import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
+import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
+import oneDark from 'react-syntax-highlighter/dist/cjs/styles/prism/one-dark'; 
 
 function ProjectSingle(props) {
   const [activeTheme] = useThemeSwitcher();
@@ -29,7 +31,7 @@ function ProjectSingle(props) {
     return (
       <div className="flex items-center">
         <button
-          className=" flex items-center hover:bg-gray-500 dark:hover:bg-gray-500  duration-300 bg-primary-dark dark:bg-primary-light dark:text-primary-dark text-white py-0.5 px-4 rounded-full cursor-pointer m-1  "
+          className=" flex items-center hover:bg-indigo-500 dark:hover:bg-indigo-400 duration-300 bg-primary-dark dark:bg-primary-light dark:text-primary-dark text-white py-0.5 px-4 rounded-full cursor-pointer m-1  "
           onClick={handleClick}
         >
           <Icon className="w-5 h-5 mr-2  text-ternary-light dark:text-ternary-dark" />
@@ -39,24 +41,51 @@ function ProjectSingle(props) {
     );
   };
   const markdown = `
-# header 
-The lift coefficient ($$a^2 + b^2$$)is a dimensionless coefficient
-A paragraph with *emphasis* and **strong importance**.
 
-> A block quote with ~strikethrough~ and a URL: https://reactjs.org.
+  # Header
+  ## Subheader
+  ### Subsubheader
+  
+  A paragraph with a [link](https://reactjs.org).
+  
+  An image:
+  ![Image](https://via.placeholder.com/150)
+  
+  An inline equation: 
+  
+  A block equation:
 
-* Lists
-* todo
-* done
-
-A table:
-
-| Left columns  | Right columns |
-| ------------- | ------------- |
-| left foo      | right foo     |
-| left bar      | right bar     |
-| left baz      | right baz     |
-`;
+  The lift coefficient ($$a^2 + b^2$$) is a dimensionless coefficient
+  
+  
+  A paragraph with *emphasis* and __strong importance__.
+  
+  > A block quote with ~strikethrough~ and a URL: https://reactjs.org.
+  
+  * Lists
+    * todo
+    * done
+  
+  A table:
+  
+  | Left columns  | Right columns |
+  | ------------- | ------------- |
+  | left foo      | right foo     |
+  | left bar      | right bar     |
+  | left baz      | right baz     |
+  
+  ~~~java
+  public class HelloWorld {
+      public static void main(String[] args) {
+          System.out.println("Hello, World!");
+      }
+  }
+  ~~~
+  
+  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt totam dolorum, ducimus obcaecati, voluptas facilis molestias nobis ut quam natus similique inventore excepturi optio ipsa deleniti fugit illo. Unde, amet! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum illo necessitatibus perspiciatis! Aperiam perferendis labore temporibus, eos culpa corporis recusandae quas, fuga voluptatibus nesciunt odit libero tenetur neque consequatur ea.
+  
+  
+  `
 
   return (
     <div className="container mx-auto">
@@ -198,7 +227,6 @@ A table:
 
         {/*  Single project right section details */}
         {/* TODO: convert this part to render an .md file with images, headers, bullet points, etc */}
-
         <div className="w-full sm:w-2/3 text-left mt-10 sm:mt-0">
           <p className="text-primary-dark dark:text-primary-light text-2xl font-bold mb-7">
             {props.project.ProjectInfo.ProjectDetailsHeading}
@@ -210,13 +238,53 @@ A table:
             remarkPlugins={[remarkMath, remarkGfm]}
             rehypePlugins={[rehypeKatex]}
             components={{
-              // Map `h1` (`# heading`) to use `h2`s.
-              h1: ({node, ...props}) => <p className='text-primary-light dark:text-primary-light text-2xl font-bold mb-7' {...props} />,
-              // Rewrite `em`s (`*like so*`) to `i` with a red foreground color.
-              // em: ({node, ...props}) => <i style={{color: 'red'}} {...props} />
+              // Map `h1` (`# heading`) to use my tailwind css .
+              h1: ({node, ...props}) => <p className='text-primary-dark dark:text-primary-light text-2xl font-bold mb-7' {...props} />,
+
+              // Map `h2` (`## heading`) to use my tailwind css 
+              h2: ({node, ...props}) => <p className='text-primary-dark dark:text-primary-light text-xl font-bold mb-7' {...props} />,
+              
+              h3: ({node, ...props}) => <p className='text-primary-dark dark:text-primary-light text-lg font-bold mb-7' {...props} />,
+
+              p: ({node, ...props}) => <p className='font-general-regular mb-5 text-lg text-ternary-dark dark:text-ternary-light' {...props} />,
+
+              a: ({node, ...props}) => <a className=' text-primary-dark dark:text-primary-light hover:underline hover:text-indigo-500 dark:hover:text-indigo-400 cursor-pointer duration-300' {...props} />,
+              
+              // bold text
+              strong: ({node, ...props}) => <strong className='font-bold text-indigo-600' {...props} />,
+
+              img: ({node, ...props}) => <img className='rounded-xl cursor-pointer shadow-lg sm:shadow-none' {...props} />,
+
+              ul: ({node, ...props}) => <ul className='leading-loose' {...props} />,
+
+              // content inside the ul
+              li: ({node, ...props}) => <li className='font-general-regular text-ternary-dark dark:text-ternary-light' {...props} />,
+
+              table: ({node, ...props}) => <table className='rounded-xl' {...props} />,
+              tr: ({node, ...props}) => <tr className='border px-4 py-2 bg-gray-100 ' {...props} />,
+              th: ({node, ...props}) => <th className='border px-4 py-2 ' {...props} />,
+
+
+              // syntax highlighting for code blocks in markdown
+              code({node, inline, className, children, ...props}) {
+                const match = /language-(\w+)/.exec(className || '')
+                return !inline && match ? (
+                  <SyntaxHighlighter
+                    children={String(children).replace(/\n$/, '')}
+                    style={oneDark}
+                    language={match[1]}
+                    PreTag="div"
+                    {...props}
+                  />
+                ) : (
+                <code className={`${className}`} {...props}>
+                  {children}
+                </code>
+                )
+              }
             }}
           />
-          {props.project.ProjectInfo.ProjectDetails.map((details) => {
+          {/* {props.project.ProjectInfo.ProjectDetails.map((details) => {
             return (
               <p
                 key={details.id}
@@ -225,7 +293,7 @@ A table:
                 {details.details}
               </p>
             );
-          })}
+          })} */}
         </div>
       </div>
 
