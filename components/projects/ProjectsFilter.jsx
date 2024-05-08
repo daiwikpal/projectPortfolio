@@ -3,6 +3,7 @@ const selectOptions = [
 	'Mobile Application',
 	'UI/UX Design',
 	'Branding',
+	'Mobile Data'
 ];
 
 function ProjectsFilter({ setSelectProject }) {

@@ -10,6 +10,7 @@ import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
+import rehypeRaw from 'rehype-raw'
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import oneDark from 'react-syntax-highlighter/dist/cjs/styles/prism/one-dark'; 
 
@@ -40,52 +41,53 @@ function ProjectSingle(props) {
       </div>
     );
   };
-  const markdown = `
+  // const markdown = `
 
-  # Header
-  ## Subheader
-  ### Subsubheader
+  // # Header
+  // ## Subheader
+  // ### Subsubheader
   
-  A paragraph with a [link](https://reactjs.org).
-  
-  An image of a cutie patootie:
-  ![Image](https://bloximages.newyork1.vip.townnews.com/mdjonline.com/content/tncms/assets/v3/editorial/d/ed/ded1de6a-9343-11ec-96aa-8f8469c89fc5/6213d9793233f.image.jpg?resize=200%2C366)
-  
-  An inline equation: 
-  
-  A block equation:
+  // A paragraph with a [link](https://reactjs.org).
 
-  The lift coefficient ($$a^2 + b^2$$) is a dimensionless coefficient
+  // pdf: 
+  // <embed src="/files/DaiwikResumeShort.pdf" type="application/pdf" width="100%" height="600px" />
+  
+  // An image of a cutie patootie:
+  // ![Image](https://bloximages.newyork1.vip.townnews.com/mdjonline.com/content/tncms/assets/v3/editorial/d/ed/ded1de6a-9343-11ec-96aa-8f8469c89fc5/6213d9793233f.image.jpg?resize=200%2C366)
+  
+  // An inline equation: 
+  
+  // A block equation:
+
+  // The lift coefficient ($$a^2 + b^2$$) is a dimensionless coefficient
   
   
-  A paragraph with *emphasis* and __strong importance__.
+  // A paragraph with *emphasis* and __strong importance__.
   
-  > A block quote with ~strikethrough~ and a URL: https://reactjs.org.
+  // > A block quote with ~strikethrough~ and a URL: https://reactjs.org.
   
-  * Lists
-    * todo
-    * done
+  // * Lists
+  //   * todo
+  //   * done
   
-  A table:
+  // A table:
   
-  | Left columns  | Right columns |
-  | ------------- | ------------- |
-  | left foo      | right foo     |
-  | left bar      | right bar     |
-  | left baz      | right baz     |
+  // | Left columns  | Right columns |
+  // | ------------- | ------------- |
+  // | left foo      | right foo     |
+  // | left bar      | right bar     |
+  // | left baz      | right baz     |
   
-  ~~~java
-  public class HelloWorld {
-      public static void main(String[] args) {
-          System.out.println("Hello, World!");
-      }
-  }
-  ~~~
+  // ~~~java
+  // public class HelloWorld {
+  //     public static void main(String[] args) {
+  //         System.out.println("Hello, World!");
+  //     }
+  // }
+  // ~~~
   
-  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt totam dolorum, ducimus obcaecati, voluptas facilis molestias nobis ut quam natus similique inventore excepturi optio ipsa deleniti fugit illo. Unde, amet! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum illo necessitatibus perspiciatis! Aperiam perferendis labore temporibus, eos culpa corporis recusandae quas, fuga voluptatibus nesciunt odit libero tenetur neque consequatur ea.
-  
-  
-  `
+  // Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt totam dolorum, ducimus obcaecati, voluptas facilis molestias nobis ut quam natus similique inventore excepturi optio ipsa deleniti fugit illo. Unde, amet! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum illo necessitatibus perspiciatis! Aperiam perferendis labore temporibus, eos culpa corporis recusandae quas, fuga voluptatibus nesciunt odit libero tenetur neque consequatur ea.
+  // `
 
   return (
     <div className="container mx-auto">
@@ -231,12 +233,12 @@ function ProjectSingle(props) {
           <p className="text-primary-dark dark:text-primary-light text-2xl font-bold mb-7">
             {props.project.ProjectInfo.ProjectDetailsHeading}
           </p>
-
+          
           <ReactMarkdown
             className='prose'
-            children={markdown}
+            children={props.project.ProjectInfo.MarkdownContent} 
             remarkPlugins={[remarkMath, remarkGfm]}
-            rehypePlugins={[rehypeKatex]}
+            rehypePlugins={[rehypeKatex, rehypeRaw]}
             components={{
               // Map `h1` (`# heading`) to use my tailwind css .
               h1: ({node, ...props}) => <p className='text-primary-dark dark:text-primary-light text-2xl font-bold mb-7' {...props} />,
@@ -257,7 +259,6 @@ function ProjectSingle(props) {
 
               ul: ({node, ...props}) => <ul className='leading-loose' {...props} />,
 
-              // content inside the ul
               li: ({node, ...props}) => <li className='font-general-regular text-ternary-dark dark:text-ternary-light' {...props} />,
 
               table: ({node, ...props}) => <table className='rounded-xl' {...props} />,

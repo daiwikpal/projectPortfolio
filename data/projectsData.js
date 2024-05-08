@@ -1,5 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 
+// import fs from 'fs';
+
 export const projectsData = [
   {
     id: 1,
@@ -30,29 +32,6 @@ export const projectsData = [
       },
     ],
     ProjectInfo: {
-      ClientHeading: "About Client",
-      CompanyInfo: [
-        {
-          id: uuidv4(),
-          title: "Name",
-          details: "Company Ltd",
-        },
-        {
-          id: uuidv4(),
-          title: "Services",
-          details: "Web Development",
-        },
-        {
-          id: uuidv4(),
-          title: "Website",
-          details: "https://company.com",
-        },
-        {
-          id: uuidv4(),
-          title: "Phone",
-          details: "555 8888 888",
-        },
-      ],
       ObjectivesHeading: "Objective",
       ObjectivesDetails:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, natus! Quibusdam enim quod in esse, mollitia molestias incidunt quas ipsa accusamus veniam.",
@@ -75,74 +54,65 @@ export const projectsData = [
           ],
         },
       ],
-      ProjectDetailsHeading: "Challenge",
-      ProjectDetails: [
-        {
-          id: uuidv4(),
-          details:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt totam dolorum, ducimus obcaecati, voluptas facilis molestias nobis ut quam natus similique inventore excepturi optio ipsa deleniti fugit illo. Unde, amet! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum illo necessitatibus perspiciatis! Aperiam perferendis labore temporibus, eos culpa corporis recusandae quas, fuga voluptatibus nesciunt odit libero tenetur neque consequatur ea.",
-        },
-        {
-          id: uuidv4(),
-          details:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta?",
-        },
-        {
-          id: uuidv4(),
-          details:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta?",
-        },
-        {
-          id: uuidv4(),
-          details:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt totam dolorum, ducimus obcaecati, voluptas facilis molestias nobis ut quam natus similique inventore excepturi optio ipsa deleniti fugit illo. Unde, amet! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum illo necessitatibus perspiciatis! Aperiam perferendis labore temporibus, eos culpa corporis recusandae quas, fuga voluptatibus nesciunt odit libero tenetur neque consequatur ea.",
-        },
-      ],
-      SocialSharingHeading: "Share This",
-      // SocialSharing: [
-      // 	{
-      // 		id: uuidv4(),
-      // 		name: 'Twitter',
-      // 		icon: <FiTwitter />,
-      // 		url: 'https://twitter.com/realstoman',
-      // 	},
-      // 	{
-      // 		id: uuidv4(),
-      // 		name: 'Instagram',
-      // 		icon: <FiInstagram />,
-      // 		url: 'https://instagram.com/realstoman',
-      // 	},
-      // 	{
-      // 		id: uuidv4(),
-      // 		name: 'Facebook',
-      // 		icon: <FiFacebook />,
-      // 		url: 'https://facebook.com/',
-      // 	},
-      // 	{
-      // 		id: uuidv4(),
-      // 		name: 'LinkedIn',
-      // 		icon: <FiLinkedin />,
-      // 		url: 'https://linkedin.com/',
-      // 	},
-      // 	{
-      // 		id: uuidv4(),
-      // 		name: 'Youtube',
-      // 		icon: <FiYoutube />,
-      // 		url: 'https://www.youtube.com/c/StomanStudio',
-      // 	},
-      // ],
+      MarkdownContent:
+`
+# Header
+## Subheader
+### Subsubheader
+
+A paragraph with a [link](https://reactjs.org).
+
+pdf: 
+<embed src="/files/DaiwikResumeShort.pdf" type="application/pdf" width="100%" height="600px" />
+
+An image of a cutie patootie:
+![Image](https://bloximages.newyork1.vip.townnews.com/mdjonline.com/content/tncms/assets/v3/editorial/d/ed/ded1de6a-9343-11ec-96aa-8f8469c89fc5/6213d9793233f.image.jpg?resize=200%2C366)
+
+An inline equation: 
+
+A block equation:
+
+The lift coefficient ($$a^2 + b^2$$) is a dimensionless coefficient
+
+
+A paragraph with *emphasis* and __strong importance__.
+
+> A block quote with ~strikethrough~ and a URL: https://reactjs.org.
+
+* Lists
+  * todo
+  * done
+
+A table:
+
+| Left columns  | Right columns |
+| ------------- | ------------- |
+| left foo      | right foo     |
+| left bar      | right bar     |
+| left baz      | right baz     |
+
+~~~java
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+~~~
+
+Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt totam dolorum, ducimus obcaecati, voluptas facilis molestias nobis ut quam natus similique inventore excepturi optio ipsa deleniti fugit illo. Unde, amet! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum illo necessitatibus perspiciatis! Aperiam perferendis labore temporibus, eos culpa corporis recusandae quas, fuga voluptatibus nesciunt odit libero tenetur neque consequatur ea.
+`, 
     },
   },
   {
     id: 2,
     title: "Phoenix Digital Agency",
     url: "phoenix-digital-agency",
-    category: "Mobile Application",
+    category: "Mobile Data",
     img: "/images/mobile-project-2.jpg",
     ProjectHeader: {
       title: "Phoenix Digital Agency",
       publishDate: "Jul 26, 2021",
-      tags: "Mobile Application",
+      tags: "Mobile Data",
     },
     ProjectImages: [
       {
@@ -162,32 +132,15 @@ export const projectsData = [
       },
     ],
     ProjectInfo: {
-      ClientHeading: "About Client",
-      CompanyInfo: [
-        {
-          id: uuidv4(),
-          title: "Name",
-          details: "Company Ltd",
-        },
-        {
-          id: uuidv4(),
-          title: "Services",
-          details: "UI Design & Frontend Development",
-        },
-        {
-          id: uuidv4(),
-          title: "Website",
-          details: "https://company.com",
-        },
-        {
-          id: uuidv4(),
-          title: "Phone",
-          details: "555 8888 888",
-        },
-      ],
       ObjectivesHeading: "Objective",
       ObjectivesDetails:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, natus! Quibusdam enim quod in esse, mollitia molestias incidunt quas ipsa accusamus veniam.",
+	  LinksHeading: "Links",
+      LinksInfo: [
+        { id: uuidv4(), icon: "FiGithub", linkName: "Github", url: "https://google.com" },
+		    { id: uuidv4(), icon: "FiYoutube" , linkName: "Youtube", url: "https://google.com" }, 
+        { id: uuidv4(), icon: "FiFile", linkName: "Youtube", url: "https://google.com" }
+      ],
       Technologies: [
         {
           title: "Tools & Technologies",
@@ -201,62 +154,53 @@ export const projectsData = [
           ],
         },
       ],
-      ProjectDetailsHeading: "Challenge",
-      ProjectDetails: [
-        {
-          id: uuidv4(),
-          details:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt totam dolorum, ducimus obcaecati, voluptas facilis molestias nobis ut quam natus similique inventore excepturi optio ipsa deleniti fugit illo. Unde, amet! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum illo necessitatibus perspiciatis! Aperiam perferendis labore temporibus, eos culpa corporis recusandae quas, fuga voluptatibus nesciunt odit libero tenetur neque consequatur ea.",
-        },
-        {
-          id: uuidv4(),
-          details:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta?",
-        },
-        {
-          id: uuidv4(),
-          details:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta?",
-        },
-        {
-          id: uuidv4(),
-          details:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt totam dolorum, ducimus obcaecati, voluptas facilis molestias nobis ut quam natus similique inventore excepturi optio ipsa deleniti fugit illo. Unde, amet! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum illo necessitatibus perspiciatis! Aperiam perferendis labore temporibus, eos culpa corporis recusandae quas, fuga voluptatibus nesciunt odit libero tenetur neque consequatur ea.",
-        },
-      ],
-      SocialSharingHeading: "Share This",
-      // SocialSharing: [
-      // 	{
-      // 		id: uuidv4(),
-      // 		name: 'Twitter',
-      // 		icon: <FiTwitter />,
-      // 		url: 'https://twitter.com/realstoman',
-      // 	},
-      // 	{
-      // 		id: uuidv4(),
-      // 		name: 'Instagram',
-      // 		icon: <FiInstagram />,
-      // 		url: 'https://instagram.com/realstoman',
-      // 	},
-      // 	{
-      // 		id: uuidv4(),
-      // 		name: 'Facebook',
-      // 		icon: <FiFacebook />,
-      // 		url: 'https://facebook.com/',
-      // 	},
-      // 	{
-      // 		id: uuidv4(),
-      // 		name: 'LinkedIn',
-      // 		icon: <FiLinkedin />,
-      // 		url: 'https://linkedin.com/',
-      // 	},
-      // 	{
-      // 		id: uuidv4(),
-      // 		name: 'Youtube',
-      // 		icon: <FiYoutube />,
-      // 		url: 'https://www.youtube.com/c/StomanStudio',
-      // 	},
-      // ],
+      MarkdownContent:
+`
+# Header
+## Subheader
+### Subsubheader
+
+A paragraph with a [link](https://reactjs.org).
+
+pdf: 
+<embed src="/files/DaiwikResumeShort.pdf" type="application/pdf" width="100%" height="600px" />
+
+An image of a cutie patootie:
+![Image](https://bloximages.newyork1.vip.townnews.com/mdjonline.com/content/tncms/assets/v3/editorial/d/ed/ded1de6a-9343-11ec-96aa-8f8469c89fc5/6213d9793233f.image.jpg?resize=200%2C366)
+
+An inline equation: 
+
+A block equation:
+
+The lift coefficient ($$a^2 + b^2$$) is a dimensionless coefficient
+
+
+A paragraph with *emphasis* and __strong importance__.
+
+> A block quote with ~strikethrough~ and a URL: https://reactjs.org.
+
+* Lists
+  * todo
+  * done
+
+A table:
+
+| Left columns  | Right columns |
+| ------------- | ------------- |
+| left foo      | right foo     |
+| left bar      | right bar     |
+| left baz      | right baz     |
+
+~~~java
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+~~~
+
+Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt totam dolorum, ducimus obcaecati, voluptas facilis molestias nobis ut quam natus similique inventore excepturi optio ipsa deleniti fugit illo. Unde, amet! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum illo necessitatibus perspiciatis! Aperiam perferendis labore temporibus, eos culpa corporis recusandae quas, fuga voluptatibus nesciunt odit libero tenetur neque consequatur ea.
+`, 
     },
   },
   {
