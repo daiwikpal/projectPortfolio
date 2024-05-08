@@ -1,13 +1,4 @@
 import { v4 as uuidv4 } from "uuid";
-import {
-  FiFacebook,
-  FiInstagram,
-  FiLinkedin,
-  FiTwitter,
-  FiYoutube,
-  FiFile,
-  FiGithub
-} from "react-icons/fi";
 
 export const projectsData = [
   {

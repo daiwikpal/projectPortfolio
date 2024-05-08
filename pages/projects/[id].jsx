@@ -6,6 +6,10 @@ import { projectsData } from "../../data/projectsData";
 import RelatedProjects from "../../components/projects/RelatedProjects";
 import { useState, useEffect } from "react";
 import useThemeSwitcher from "../../hooks/useThemeSwitcher";
+import ReactMarkdown from "react-markdown";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import remarkGfm from "remark-gfm";
 
 function ProjectSingle(props) {
   const [activeTheme] = useThemeSwitcher();
@@ -34,6 +38,25 @@ function ProjectSingle(props) {
       </div>
     );
   };
+  const markdown = `
+# header 
+The lift coefficient ($$a^2 + b^2$$)is a dimensionless coefficient
+A paragraph with *emphasis* and **strong importance**.
+
+> A block quote with ~strikethrough~ and a URL: https://reactjs.org.
+
+* Lists
+* todo
+* done
+
+A table:
+
+| Left columns  | Right columns |
+| ------------- | ------------- |
+| left foo      | right foo     |
+| left bar      | right bar     |
+| left baz      | right baz     |
+`;
 
   return (
     <div className="container mx-auto">
@@ -139,11 +162,11 @@ function ProjectSingle(props) {
             <p className="font-general-regular text-2xl font-semibold text-ternary-dark dark:text-ternary-light mb-2">
               {props.project.ProjectInfo.LinksHeading}
             </p>
-            
+
             <div className="flex">
-            {props.project.ProjectInfo.LinksInfo.map((link) => (
-              <ExternalLinkButton key={link.id} linkInfo={link} />
-            ))}
+              {props.project.ProjectInfo.LinksInfo.map((link) => (
+                <ExternalLinkButton key={link.id} linkInfo={link} />
+              ))}
             </div>
           </div>
 
@@ -175,10 +198,24 @@ function ProjectSingle(props) {
 
         {/*  Single project right section details */}
         {/* TODO: convert this part to render an .md file with images, headers, bullet points, etc */}
+
         <div className="w-full sm:w-2/3 text-left mt-10 sm:mt-0">
           <p className="text-primary-dark dark:text-primary-light text-2xl font-bold mb-7">
             {props.project.ProjectInfo.ProjectDetailsHeading}
           </p>
+
+          <ReactMarkdown
+            className='prose'
+            children={markdown}
+            remarkPlugins={[remarkMath, remarkGfm]}
+            rehypePlugins={[rehypeKatex]}
+            components={{
+              // Map `h1` (`# heading`) to use `h2`s.
+              h1: ({node, ...props}) => <p className='text-primary-light dark:text-primary-light text-2xl font-bold mb-7' {...props} />,
+              // Rewrite `em`s (`*like so*`) to `i` with a red foreground color.
+              // em: ({node, ...props}) => <i style={{color: 'red'}} {...props} />
+            }}
+          />
           {props.project.ProjectInfo.ProjectDetails.map((details) => {
             return (
               <p
